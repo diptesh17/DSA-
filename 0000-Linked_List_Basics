@@ -1,1 +1,113 @@
+// Every elem of LL contains -> Data & add of next node 
+
+class Node {
+
+        int data ;
+        Node *next ;
+
+        Node(int data)
+        {
+          this -> data = data;
+          next = NULL ;
+        }
+};
+
+
+// Accept i/p from user && display it  i/p = [1 2 3 4 5 -1] // -1 is necessary
+
+/*
+          1. Take a no  
+          2. make head = NULL
+          3. check whether num == -1 // stoping condition
+          4. if not ,
+             jabtak -1 nahi aata 
+             new node create
+             if head null , head = newnode
+             else temp me head ka add
+             traverse and jaha next null hua , vaha insert 
+*/
+  
+
+
+Node *input {
+
+    int data;
+    cin >> data ;
+    Node *head = NULL ;
+
+    while(data != -1)
+      {
+          Node *newnode = new Node(data);
+      
+          if(head == NULL)
+          head = newNode ;
+      
+          else
+            {
+              Node *temp = head;
+                  while(temp->next != NULL)
+                  {
+                      temp = temp->next;
+                  }
+              
+              temp->next = newnode;
+
+            }
+      
+      cin >> data;
+      
+      }
+
+return head;
+    
+}
+
+
+
+int main()
+{
+  Node *head = input();
+  Node *temp = head;
+
+  while(temp != NULL)
+{
+  cout << temp->data << " ";
+  temp = temp->next;
+}
+
+
+}
+
+
+/* Insertion
+
+
+Node *insertion (int i , Node *head,int data)
+{
+        Node *newnode = new Node(data);
+        Node *temp = head;
+        int count = 0;
+        
+        if(i==0)
+        {
+            newnode->next = head;
+            head = newnode;
+            return head;
+        }
+        
+        while(temp != NULL && count <i-1)
+        {
+            temp = temp->next;
+        }
+        
+        if(temp != NULL)
+        {
+           newnode->next = temp->next;
+           temp->next = newnode;
+        }
+        
+        return head;
+}
+
+
 
